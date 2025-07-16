@@ -3,7 +3,7 @@
 
 # Demandes de variables
 
-read -p "Rentrer le nom : Proxy" proxy_hostname
+read -p "Rentrer le nom : Proxy " proxy_hostname
 
 valid_password=false
 
