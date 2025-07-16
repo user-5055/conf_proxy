@@ -5,6 +5,8 @@
 
 read -p "Rentrer le nom : Proxy" proxy_hostname
 
+valid_password=false
+
 while [ "$valid_password" = false ]; do
     read -s -p "Mot de passe DB : " db_password
     echo
@@ -39,7 +41,7 @@ sudo -u postgres psql -c "CREATE USER zabbix WITH PASSWORD '$db_password';"
 sudo -u postgres createdb -O zabbix zabbix_proxy
 sudo -u postgres psql zabbix_proxy < /usr/share/zabbix/sql-scripts/postgresql/proxy.sql
 
-conf_file="/chemin/vers/zabbix_proxy.conf"
+conf_file="/etc/zabbix/zabbix_proxy.conf"
 server="zabbix.irvi.fr"
 
 sed -i "s/^# Server=127.0.0.1/Server=$server/" "$conf_file"
@@ -48,7 +50,7 @@ sed -i "s/^# DBPassword=/DBPassword=$db_password/" "$conf_file"
 
 systemctl enable --now zabbix-proxy
 
-$psk_file="/etc/zabbix/zabbix_proxy.psk"
+psk_file="/etc/zabbix/zabbix_proxy.psk"
 
 ### Chiffrement
 # QR code
