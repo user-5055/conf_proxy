@@ -4,3 +4,4 @@ mkdir -p /usr/local/share/snmp/mibs
 touch /etc/snmp/snmp.conf
 echo "mibdirs +/usr/local/share/snmp/mibs" >> /etc/snmp/snmp.conf
 mv SFOS-FIREWALL-MIB.txt /usr/local/share/snmp/mibs
+systemctl restart zabbix-proxy
