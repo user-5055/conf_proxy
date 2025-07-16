@@ -59,7 +59,7 @@ qrencode -t ANSIUTF8 < $psk_file
 
 # TLS
 sed -i "s/^# TLSConnect=unencrypted/TLSConnect=psk/" "$conf_file"
-sed -i "s/^# TLSPSKFile=/TLSPSKFile=$psk_file/" "$conf_file"
+sed -i "s/^# TLSPSKFile=/TLSPSKFile='$psk_file'/" "$conf_file"
 
 psk_identity="PSK-$(echo "$proxy_hostname" | tr ' ' '-')"
 sed -i "s/^# TLSPSKIdentity=/TLSPSKIdentity=$psk_identity/" "$conf_file"
