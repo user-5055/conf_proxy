@@ -39,7 +39,7 @@ dnf install -y zabbix-proxy-pgsql zabbix-sql-scripts zabbix-selinux-policy telne
 
 sudo -u postgres psql -c "CREATE USER zabbix WITH PASSWORD '$db_password';"
 sudo -u postgres createdb -O zabbix zabbix_proxy
-sudo -u postgres psql zabbix_proxy < /usr/share/zabbix/sql-scripts/postgresql/proxy.sql
+sudo -u zabbix psql zabbix_proxy < /usr/share/zabbix/sql-scripts/postgresql/proxy.sql
 
 conf_file="/etc/zabbix/zabbix_proxy.conf"
 server="zabbix.irvi.fr"
