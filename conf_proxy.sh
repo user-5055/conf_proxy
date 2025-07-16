@@ -44,8 +44,8 @@ sudo -u postgres psql zabbix_proxy < /usr/share/zabbix/sql-scripts/postgresql/pr
 conf_file="/etc/zabbix/zabbix_proxy.conf"
 server="zabbix.irvi.fr"
 
-sed -i "s/^# Server=127.0.0.1/Server=$server/" "$conf_file"
-sed -i "s/^# Hostname=Zabbix proxy*/Hostname=Proxy $proxy_hostname/" "$conf_file"
+sed -i "s/^Server=127.0.0.1/Server=$server/" "$conf_file"
+sed -i "s/^Hostname=Zabbix proxy*/Hostname=Proxy $proxy_hostname/" "$conf_file"
 sed -i "s/^# DBPassword=/DBPassword=$db_password/" "$conf_file"
 
 systemctl enable --now zabbix-proxy
