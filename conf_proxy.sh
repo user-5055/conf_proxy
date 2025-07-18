@@ -35,7 +35,7 @@ cp epel.repo /etc/yum.repos.d
 
 rpm -Uvh https://repo.zabbix.com/zabbix/7.2/release/alma/9/noarch/zabbix-release-latest-7.2.el9.noarch.rpm
 dnf clean all
-dnf install -y zabbix-proxy-pgsql zabbix-sql-scripts zabbix-selinux-policy telnet lynx net-snmp net-snmp-utils wireshark-cli qrencode
+dnf install -y zabbix-proxy-pgsql zabbix-sql-scripts zabbix-selinux-policy telnet lynx net-snmp net-snmp-utils wireshark-cli qrencode nmap
 
 sudo -u postgres psql -c "CREATE USER zabbix WITH PASSWORD '$db_password';"
 sudo -u postgres createdb -O zabbix zabbix_proxy
