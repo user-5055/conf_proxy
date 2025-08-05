@@ -1,3 +1,4 @@
+dmesg -n 1 > /dev/null 2>&1
 read -p "Version du proxy : " proxy_version
 echo "Arrêt du proxy"
 systemctl stop zabbix-proxy > /dev/null 2>&1
@@ -9,3 +10,4 @@ echo "Mise à jour du proxy..."
 dnf update zabbix-* -y > /dev/null 2>&1
 systemctl start zabbix-proxy > /dev/null 2>&1
 echo "Proxy redémarré"
+dmesg -n 7 > /dev/null 2>&1
