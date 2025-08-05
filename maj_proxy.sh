@@ -1,5 +1,3 @@
-exec > /dev/null 2>&1
-
 read -p "Version du proxy : " proxy_version
 echo "Arrêt du proxy"
 systemctl stop zabbix-proxy > /dev/null 2>&1
