@@ -7,5 +7,5 @@ echo "Nettoyage du cache des dépots..."
 dnf clean all > /dev/null 2>&1
 echo "Mise à jour du proxy..."
 dnf update zabbix-* -y > /dev/null 2>&1
-echo "Démarrage du proxy"
 systemctl start zabbix-proxy > /dev/null 2>&1
+echo "Proxy redémarré"
