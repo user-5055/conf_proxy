@@ -4,6 +4,7 @@
 # Demandes de variables
 
 read -p "Rentrer le nom : Proxy " proxy_hostname
+read -p "Zabbix Proxy Version : " proxy_version
 
 valid_password=false
 
@@ -33,7 +34,7 @@ systemctl enable --now postgresql-17
 rm /etc/yum.repos.d/epel.repo
 cp epel.repo /etc/yum.repos.d
 
-rpm -Uvh https://repo.zabbix.com/zabbix/7.2/release/alma/9/noarch/zabbix-release-latest-7.2.el9.noarch.rpm
+rpm -Uvh https://repo.zabbix.com/zabbix/$proxy_version/release/alma/9/noarch/zabbix-release-latest-$proxy_version.el9.noarch.rpm
 dnf clean all
 dnf install -y zabbix-proxy-pgsql zabbix-sql-scripts zabbix-selinux-policy telnet lynx net-snmp net-snmp-utils wireshark-cli qrencode nmap
 
