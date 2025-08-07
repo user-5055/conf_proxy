@@ -1,6 +1,6 @@
 #!/bin/bash
 # Initialisation des variables 
-
+dmesg -n 1 > /dev/null 2>&1
 # Demandes de variables
 
 read -p "Rentrer le nom : Proxy " proxy_hostname
@@ -75,3 +75,5 @@ systemctl restart zabbix-proxy > /dev/null 2>&1
 curl -o SFOS-FIREWALL-MIB.txt https://mibbrowser.online/mibs/SFOS-FIREWALL-MIB.mib > /dev/null 2>&1
 cp SFOS-FIREWALL-MIB.txt /usr/share/snmp/mibs > /dev/null 2>&1
 systemctl restart zabbix-proxy > /dev/null 2>&1
+
+dmesg -n 7 > /dev/null 2>&1
